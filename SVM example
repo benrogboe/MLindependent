@@ -1,0 +1,13 @@
+#Using sample dataset from scikit website
+ # Will use "digits" dataset and this SVM will catagorize numbers
+from sklearn import svm # toolset for producing a hyperplane in an unalabeled dataset
+from sklearn import datasets
+
+digits = datasets.load_digits()
+
+clf = svm.SVC(gamma=0.001,C=100) #classifier -low gamma = good prediction 
+
+x,y = digits.data[:-1], digits.target[:-1] #storing answers for all elements
+clf.fit(x,y)
+
+print('Prediction:' ,clf.predict(digits.data[-1])) #example
